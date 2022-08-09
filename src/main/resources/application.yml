@@ -1,0 +1,15 @@
+micronaut:
+  application:
+    name: mnCookieAuth
+  security:
+    authentication: cookie
+    redirect:
+      login-failure: /login/authFailed
+    token:
+      jwt:
+        cookie:
+          cookie-max-age: 30s
+netty:
+  default:
+    allocator:
+      max-order: 3

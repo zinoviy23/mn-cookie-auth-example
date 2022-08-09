@@ -1,0 +1,33 @@
+# @no-redirect
+POST http://localhost:8080/login
+Content-Type: application/x-www-form-urlencoded
+
+username=sherlock&password=password
+
+> {%
+ client.test("has redirect", () => {
+     client.assert(response.status === 303, "status is " + response.status);
+ });
+ %}
+
+###
+GET http://localhost:8080/
+
+> {%
+ client.test("has username text", () => {
+    client.assert(response.body.includes("sherlock"), response.body)
+ });
+ %}
+
+###
+GET http://localhost:8080/protected
+
+> {%
+ client.test("code is 200", () => {
+    client.assert(response.status === 200, "status is " + response.status);
+ });
+ %}
+
+###
+# @no-redirect
+#POST http://localhost:8080/logout
