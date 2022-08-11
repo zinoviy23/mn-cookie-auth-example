@@ -1,0 +1,19 @@
+GET http://sashkinsite.com:8080/setCookie
+
+###
+GET http://sashkinsite.com:8080/dumpCookies
+
+> {%
+client.test("has cookie", () => {
+   client.assert(response.body["Kek"] !== undefined);
+});
+%}
+
+###
+GET http://user.sashkinsite.com:8080/dumpCookies
+
+> {%
+client.test("has cookie", () => {
+   client.assert(response.body["Kek"] !== undefined);
+});
+%}

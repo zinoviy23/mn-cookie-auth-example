@@ -1,30 +1,16 @@
-## Micronaut 3.5.2 Documentation
+## Cookies test
 
-- [User Guide](https://docs.micronaut.io/3.5.2/guide/index.html)
-- [API Reference](https://docs.micronaut.io/3.5.2/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/3.5.2/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
+### Setup hosts
 
----
+Check if there no `sashkinsite.com` in `/etc/hosts`:
+```bash
+cat /etc/hosts
+```
 
-- [Shadow Gradle Plugin](https://plugins.gradle.org/plugin/com.github.johnrengelman.shadow)
+If they are go to the next section. If not:
+```bash
+sudo -- sh -c  'echo "# For testing\n127.0.0.1 sashkinsite.com\n127.0.0.1 user.sashkinsite.com" >> /etc/hosts'
+```
 
-## Feature views-velocity documentation
-
-- [Micronaut Velocity Views documentation](https://micronaut-projects.github.io/micronaut-views/latest/guide/index.html#velocity)
-
-- [https://velocity.apache.org](https://velocity.apache.org)
-
-## Feature http-client documentation
-
-- [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
-
-## Feature security-jwt documentation
-
-- [Micronaut Security JWT documentation](https://micronaut-projects.github.io/micronaut-security/latest/guide/index.html)
-
-## Feature reactor documentation
-
-- [Micronaut Reactor documentation](https://micronaut-projects.github.io/micronaut-reactor/snapshot/guide/index.html)
-
-
+### Testing
+Execute requests from [./cookies.http](cookies.http)
